@@ -1,0 +1,12 @@
+# System Files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Temporary Files
+tmp/
+*.tmp
+*.log
+
+# Git LFS (Optional if user wants to use it for large CSVs)
+# hotel_booking.csv
