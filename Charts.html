@@ -1002,12 +1002,6 @@ function toggleTheme(){
   const isDark=d.getAttribute('data-theme')==='dark';
   d.setAttribute('data-theme',isDark?'':'dark');
   document.getElementById('themeBtn').textContent=isDark?'🌙 Dark':'☀️ Light';
-  localStorage.setItem('hotel_theme', isDark?'light':'dark');
-}
-// Init theme
-if(localStorage.getItem('hotel_theme')==='dark'){
-  document.documentElement.setAttribute('data-theme','dark');
-  document.getElementById('themeBtn').textContent='☀️ Light';
 }
 
 // ── SCROLL NAV ────────────────────────────────────────────────
