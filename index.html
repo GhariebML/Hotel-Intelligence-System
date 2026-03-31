@@ -1650,54 +1650,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   </div>
 </section>
 
-  <div class="chart-grid-2">
-    <div class="card">
-      <div class="card-header"><span class="card-title">Workflow 1 — Cancellation Classifier (Random Forest)</span><span class="card-badge">AUC 0.86</span></div>
-      <div class="card-body">
-        <img src="assets/eda/workflow_rf.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Orange Workflow" style="width:100%; border-radius:8px; margin-bottom:16px; cursor:zoom-in;" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        
-        <div class="metric-row">
-          <div class="metric-item"><div class="metric-val" style="color:var(--teal)">0.86</div><div class="metric-lbl">AUC Score</div></div>
-          <div class="metric-item"><div class="metric-val" style="color:var(--amber)">81%</div><div class="metric-lbl">Accuracy</div></div>
-          <div class="metric-item"><div class="metric-val" style="color:var(--green)">0.79</div><div class="metric-lbl">F1-Score</div></div>
-        </div>
-        <p style="margin-top:14px;font-size:13px;color:var(--muted)">Validated via 10-fold stratified cross-validation. Outperforms Logistic Regression baseline (AUC 0.78). Target: <code style="font-family:var(--font-mono);font-size:11px">is_canceled</code>.</p>
-        <h4 style="margin-top:16px;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px">Feature Importance</h4>
-        <img src="assets/eda/feature_importance.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Feature Importance" style="width:100%; border-radius:8px; cursor:zoom-in;" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header"><span class="card-title">Workflow 2 — Guest Clustering (k-Means, k=3)</span><span class="card-badge">Silhouette 0.61</span></div>
-      <div class="card-body">
-        <img src="assets/eda/workflow_kmeans.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Orange k-Means Workflow" style="width:100%; border-radius:8px; margin-bottom:16px; cursor:zoom-in;" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
 
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">
-          <div style="background:linear-gradient(135deg,#1A7A4A,#1A5A35);color:#fff;border-radius:10px;padding:14px;text-align:center">
-            <div style="font-size:22px;margin-bottom:4px">🏆</div>
-            <div style="font-weight:700;font-size:13px">Cluster A</div>
-            <div style="font-size:11px;opacity:.8;margin-top:4px">Loyal Guests</div>
-            <div style="font-size:10px;opacity:.65;margin-top:6px">Short lead · Repeat · High ADR · 15% cancel</div>
-          </div>
-          <div style="background:linear-gradient(135deg,#C0392B,#922B21);color:#fff;border-radius:10px;padding:14px;text-align:center">
-            <div style="font-size:22px;margin-bottom:4px">⚠️</div>
-            <div style="font-weight:700;font-size:13px">Cluster B</div>
-            <div style="font-size:11px;opacity:.8;margin-top:4px">OTA Planners</div>
-            <div style="font-size:10px;opacity:.65;margin-top:6px">Long lead · 1st-time · Non-Refund · 68% cancel</div>
-          </div>
-          <div style="background:linear-gradient(135deg,#1B3A5C,#0F2236);color:#fff;border-radius:10px;padding:14px;text-align:center">
-            <div style="font-size:22px;margin-bottom:4px">🏢</div>
-            <div style="font-weight:700;font-size:13px">Cluster C</div>
-            <div style="font-size:11px;opacity:.8;margin-top:4px">Corporate</div>
-            <div style="font-size:10px;opacity:.65;margin-top:6px">Stable · Contract · Predictable · 18% cancel</div>
-          </div>
-        </div>
-        <div class="plot-card" style="box-shadow:none;border:1px solid var(--border)">
-          <div class="plot-card-header"><span class="plot-card-title">k-Means Cluster Visualization</span></div>
-          <img class="plot-card-img" src="assets/eda/clusters.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Cluster Visualization" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 
