@@ -453,16 +453,16 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
     <table class="data-table">
       <thead><tr><th>#</th><th>View Name</th><th>Business Question</th><th>Key Technique</th></tr></thead>
       <tbody>
-        <tr><td>Q1</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_HotelOccupancyRate</code></td><td>Occupancy % per hotel (last 30 days)</td><td>COUNT DISTINCT · NULLIF guard</td></tr>
-        <tr><td>Q2</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_MonthlyRevenue</code></td><td>Revenue trend by month &amp; hotel</td><td>YEAR/MONTH · GROUP BY</td></tr>
-        <tr><td>Q3</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_GuestStayHistory</code></td><td>Guest lifetime value &amp; stay count</td><td>LEFT JOIN · SUM · COUNT</td></tr>
-        <tr><td>Q4</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_CancellationByChannel</code></td><td>Cancellation rate per booking channel</td><td>Correlated subquery · CAST %</td></tr>
-        <tr><td>Q5</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_RoomTypePerformance</code></td><td>Revenue &amp; demand by room type</td><td>LEFT JOIN · AVG · SUM</td></tr>
-        <tr><td>Q6</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_OutstandingInvoices</code></td><td>Unpaid balances &amp; days overdue</td><td>DATEDIFF · WHERE outstanding &gt; 0</td></tr>
-        <tr><td>Q7</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_ServiceUsageAnalysis</code></td><td>Most revenue-generating services</td><td>LEFT JOIN Services · rank</td></tr>
-        <tr><td>Q8</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_PaymentMethodBreakdown</code></td><td>Revenue share per payment method</td><td>Scalar subquery · % share</td></tr>
-        <tr><td>Q9</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_HousekeepingTurnaround</code></td><td>Avg &amp; max cleaning time per room</td><td>DATEDIFF MINUTE · AVG · MAX</td></tr>
-        <tr><td>Q10</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_StaffPerformance</code></td><td>Revenue &amp; bookings per staff member</td><td>Multiple LEFT JOINs · COUNT · SUM</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_HotelOccupancyRate</code></td><td>Occupancy % per hotel (last 30 days)</td><td>COUNT DISTINCT · NULLIF guard</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_MonthlyRevenue</code></td><td>Revenue trend by month &amp; hotel</td><td>YEAR/MONTH · GROUP BY</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_GuestStayHistory</code></td><td>Guest lifetime value &amp; stay count</td><td>LEFT JOIN · SUM · COUNT</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_CancellationByChannel</code></td><td>Cancellation rate per booking channel</td><td>Correlated subquery · CAST %</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_RoomTypePerformance</code></td><td>Revenue &amp; demand by room type</td><td>LEFT JOIN · AVG · SUM</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_OutstandingInvoices</code></td><td>Unpaid balances &amp; days overdue</td><td>DATEDIFF · WHERE outstanding &gt; 0</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_ServiceUsageAnalysis</code></td><td>Most revenue-generating services</td><td>LEFT JOIN Services · rank</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_PaymentMethodBreakdown</code></td><td>Revenue share per payment method</td><td>Scalar subquery · % share</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_HousekeepingTurnaround</code></td><td>Avg &amp; max cleaning time per room</td><td>DATEDIFF MINUTE · AVG · MAX</td></tr>
+        <tr><td>*</td><td><code style="font-family:var(--font-mono);font-size:12px">vw_StaffPerformance</code></td><td>Revenue &amp; bookings per staff member</td><td>Multiple LEFT JOINs · COUNT · SUM</td></tr>
       </tbody>
     </table>
   </div>
@@ -500,8 +500,6 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
-<!-- SECTION: EDA -->
-<!-- ══════════════════════════════════════════════════════════════ -->
 <!-- ══════════════════════════════════════════════════════════════ -->
 <!-- SECTION: EDA -->
 <!-- ══════════════════════════════════════════════════════════════ -->
@@ -509,8 +507,14 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div class="section-header">
     <div class="section-header-left">
       <span class="section-tag">EXPLORATORY DATA ANALYSIS</span>
-      <h2 class="section-title">18-Plot EDA Gallery</h2>
+      <h2 class="section-title">EDA Gallery</h2>
       <p class="section-sub">Comprehensive data quality, univariate, bivariate, and multivariate analysis.</p>
+    </div>
+    <div class="section-header-right">
+      <a href="assets/eda/Hotel_Reservation_EDA_Analysis_Snipers_Team.ipynb" download class="nav-btn" style="padding:10px 20px;background:var(--navy);color:white;border-radius:6px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        Download Colab Notebook
+      </a>
     </div>
   </div>
 
@@ -518,25 +522,23 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
     <button class="eda-tab active" onclick="switchEdaTab(event, 'data-quality')">Data Quality</button>
     <button class="eda-tab" onclick="switchEdaTab(event, 'distributions')">Distributions</button>
     <button class="eda-tab" onclick="switchEdaTab(event, 'categorical')">Categorical</button>
-    <button class="eda-tab" onclick="switchEdaTab(event, 'correlation')">Correlation</button>
-    <button class="eda-tab" onclick="switchEdaTab(event, 'cancellation')">Cancellation Drivers</button>
   </div>
 
   <div id="data-quality" class="eda-tab-content active" style="margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Missing Values &amp; Validity Violations</span><span class="plot-card-tag">Q1</span></div>
-        <img class="plot-card-img" src="assets/eda/q1.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q1 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Missing Values &amp; Validity Violations</span></div>
+        <img class="plot-card-img" src="assets/eda/q1.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Analysis of missing values across all dataset features.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Data Inconsistencies</span><span class="plot-card-tag">Q2</span></div>
-        <img class="plot-card-img" src="assets/eda/q2.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q2 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Data Inconsistencies</span></div>
+        <img class="plot-card-img" src="assets/eda/q2.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Identification of structural errors and invalid formats.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Outlier Detection</span><span class="plot-card-tag">Q3</span></div>
-        <img class="plot-card-img" src="assets/eda/q3.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q3 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Outlier Detection</span></div>
+        <img class="plot-card-img" src="assets/eda/q3.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Boxplots highlighting numerical outliers like ADR anomalies.</p>
       </div>
     </div>
@@ -545,18 +547,18 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div id="distributions" class="eda-tab-content" style="display:none; margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Lead Time Distribution</span><span class="plot-card-tag">Q4</span></div>
-        <img class="plot-card-img" src="assets/eda/q4.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q4 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Lead Time Distribution</span></div>
+        <img class="plot-card-img" src="assets/eda/q4.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Histogram of booking lead times showing right-skew.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">ADR Distribution</span><span class="plot-card-tag">Q5</span></div>
-        <img class="plot-card-img" src="assets/eda/q5.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q5 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">ADR Distribution</span></div>
+        <img class="plot-card-img" src="assets/eda/q5.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Average Daily Rate spread across hotel types.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Length of Stay</span><span class="plot-card-tag">Q6</span></div>
-        <img class="plot-card-img" src="assets/eda/q6.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q6 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Length of Stay</span></div>
+        <img class="plot-card-img" src="assets/eda/q6.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Distribution of total nights stayed per booking.</p>
       </div>
     </div>
@@ -565,79 +567,18 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div id="categorical" class="eda-tab-content" style="display:none; margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Market Segment Breakdown</span><span class="plot-card-tag">Q7</span></div>
-        <img class="plot-card-img" src="assets/eda/q7.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q7 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Market Segment Breakdown</span></div>
+        <img class="plot-card-img" src="assets/eda/q7.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Proportion of bookings by market segment (OTA, Direct, etc).</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Distribution Channel Options</span><span class="plot-card-tag">Q8</span></div>
-        <img class="plot-card-img" src="assets/eda/q8.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q8 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <div class="plot-card-header"><span class="plot-card-title">Distribution Channel Options</span></div>
+        <img class="plot-card-img" src="assets/eda/q8.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
         <p class="plot-caption">Frequency of bookings via different distribution channels.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Deposit Types</span><span class="plot-card-tag">Q9</span></div>
-        <img class="plot-card-img" src="assets/eda/q9.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q9 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Count of No Deposit, Non-Refund, and Refundable bookings.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Customer Types</span><span class="plot-card-tag">Q10</span></div>
-        <img class="plot-card-img" src="assets/eda/q10.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q10 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Transient vs Contract vs Group customer proportions.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="correlation" class="eda-tab-content" style="display:none; margin-top:24px;">
-    <div class="chart-grid-2">
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Correlation Heatmap</span><span class="plot-card-tag">Q11</span></div>
-        <img class="plot-card-img" src="assets/eda/q11.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q11 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Pearson correlation matrix for numerical features.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">ADR vs Lead Time</span><span class="plot-card-tag">Q12</span></div>
-        <img class="plot-card-img" src="assets/eda/q12.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q12 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Scatter plot showing relationship between lead time and price.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Cancellations by Month</span><span class="plot-card-tag">Q13</span></div>
-        <img class="plot-card-img" src="assets/eda/q13.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q13 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Seasonality of cancellations across the year.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Cancellations vs Length of Stay</span><span class="plot-card-tag">Q14</span></div>
-        <img class="plot-card-img" src="assets/eda/q14.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q14 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Impact of stay duration on cancellation probability.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="cancellation" class="eda-tab-content" style="display:none; margin-top:24px;">
-    <div class="chart-grid-2">
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Lead Time vs Cancellation</span><span class="plot-card-tag">Q15</span></div>
-        <img class="plot-card-img" src="assets/eda/q15.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q15 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Cancellation likelihood sharply increases with lead time.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Deposit Type vs Cancellation</span><span class="plot-card-tag">Q16</span></div>
-        <img class="plot-card-img" src="assets/eda/q16.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q16 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">The paradox: non-refundable deposits have higher cancellation rates.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Special Requests Impact</span><span class="plot-card-tag">Q17</span></div>
-        <img class="plot-card-img" src="assets/eda/q17.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q17 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Bookings with special requests are significantly less likely to cancel.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Previous Cancellations History</span><span class="plot-card-tag">Q18</span></div>
-        <img class="plot-card-img" src="assets/eda/q18.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Q18 Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Effect of historical cancellation behavior on current booking risk.</p>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- SECTION: LIVE DASHBOARD -->
 <!-- ══════════════════════════════════════════════════════════════ -->
@@ -1282,7 +1223,7 @@ function openLightbox(src) {
 }
 
 function openERD() {
-    var src = "assets/db/erd.webp";
+    var src = "assets/db/Hotel_Reservation_ERD_Database_Design.png";
     openLightbox(src);
 }
 </script>
