@@ -601,35 +601,62 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   </div>
 
   <div class="chart-grid-2" style="margin-top:24px">
+
     <div class="card">
-      <div class="card-header"><span class="card-title">Monthly Booking Trend by Hotel Type</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="monthlyTrendChart"></canvas></div>
+      <div class="card-header"><span class="card-title">Top 20 guests by LifetimeSpend</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q1.png" loading="lazy" onclick="openLightbox(this.src)" alt="Top 20 guests by LifetimeSpend" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">Cancellation Rate by Market Segment</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="cancelSegChart"></canvas></div>
-    </div>
-  </div>
-  <div class="chart-grid-2" style="margin-top:20px">
-    <div class="card">
-      <div class="card-header"><span class="card-title">Revenue Distribution by Deposit Type</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="depositChart"></canvas></div>
+      <div class="card-header"><span class="card-title">Available rooms between two dates</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q2.png" loading="lazy" onclick="openLightbox(this.src)" alt="Available rooms between two dates" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">Guest Demographics — Occupancy Type</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="demoChart"></canvas></div>
-    </div>
-  </div>
-  <div class="chart-grid-2" style="margin-top:20px">
-    <div class="card">
-      <div class="card-header"><span class="card-title">ADR by Hotel Type &amp; Season</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="adrSeasonChart"></canvas></div>
+      <div class="card-header"><span class="card-title">Daily occupancy rate for a date range</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q3.png" loading="lazy" onclick="openLightbox(this.src)" alt="Daily occupancy rate for a date range" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
     </div>
     <div class="card">
-      <div class="card-header"><span class="card-title">Meal Plan Popularity</span><span class="card-badge">Live Chart</span></div>
-      <div class="chart-wrap"><canvas id="mealChart"></canvas></div>
+      <div class="card-header"><span class="card-title">Reservation details</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q4.png" loading="lazy" onclick="openLightbox(this.src)" alt="Reservation details" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
     </div>
-  </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Cancellation analysis</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q5.png" loading="lazy" onclick="openLightbox(this.src)" alt="Cancellation analysis" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Customer Type Revenue Analysis</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q6.png" loading="lazy" onclick="openLightbox(this.src)" alt="Customer Type Revenue Analysis" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Outstanding invoices in 60+ bucket</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q7.png" loading="lazy" onclick="openLightbox(this.src)" alt="Outstanding invoices in 60+ bucket" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Payment method breakdown</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q8.png" loading="lazy" onclick="openLightbox(this.src)" alt="Payment method breakdown" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Top 10 staff by TotalRevenueProcessed</span><span class="card-badge">Computed View</span></div>
+      <div class="chart-wrap" style="padding:0;">
+        <img src="assets/sql/q10.png" loading="lazy" onclick="openLightbox(this.src)" alt="Top 10 staff by TotalRevenueProcessed" style="width:100%; height:auto; border-radius:0 0 8px 8px; cursor:zoom-in;">
+      </div>
+    </div>
+</div>
 
   <!-- Risk Matrix -->
   <div class="card" style="margin-top:20px">
