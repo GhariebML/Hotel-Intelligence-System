@@ -1749,14 +1749,14 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 <!-- ══════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-links" style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding: 0 0 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; text-transform:uppercase; font-size:12px; font-weight:600;">
-    <a href="#overview" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Overview</a>
-    <a href="#team" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Team</a>
-    <a href="#database" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Database</a>
-    <a href="#eda" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">EDA</a>
-    <a href="#dashboard" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Dashboard</a>
-    <a href="#ml" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">ML Models</a>
-    <a href="#recommendations" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Recommendations</a>
-    <a href="#implementation" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Implementation Plan</a>
+    <a href="#" onclick="scrollTo('#overview'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Overview</a>
+    <a href="#" onclick="scrollTo('#team'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Team</a>
+    <a href="#" onclick="scrollTo('#database'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Database</a>
+    <a href="#" onclick="scrollTo('#eda'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">EDA</a>
+    <a href="#" onclick="scrollTo('#dashboard'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Dashboard</a>
+    <a href="#" onclick="scrollTo('#ml'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">ML Models</a>
+    <a href="#" onclick="scrollTo('#recommendations'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Recommendations</a>
+    <a href="#" onclick="scrollTo('#implementation'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Implementation Plan</a>
   </div>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1923,6 +1923,7 @@ window.addEventListener('scroll',()=>{
     const target=b.getAttribute('onclick')?.match(/#(\w+)/)?.[1];
     b.classList.toggle('active',target===cur);
   });
+},{passive:true});
 
 // --- ML Models Predictive Engine Logic ---
 
@@ -2138,8 +2139,6 @@ function predictRisk() {
     </div>
   `;
 }
-
-},{passive:true});
 </script>
 
 <!-- Scripts for Lightbox and Tabs -->
@@ -2208,10 +2207,10 @@ function openERD() {
         <div class="chat-bubble">
           <p id="greeting-txt"></p>
           <div class="chat-suggestions" id="chat-sugg">
-            <button class="chat-sugg-btn" onclick="sendSugg(this)">What kind of AI & data projects have you built?</button>
-            <button class="chat-sugg-btn" onclick="sendSugg(this)">What services do you offer and what are your rates?</button>
-            <button class="chat-sugg-btn" onclick="sendSugg(this)">What technologies do you specialize in?</button>
-            <button class="chat-sugg-btn" onclick="sendSugg(this)">How do I contact you or place an order?</button>
+            <button class="chat-sugg-btn" onclick="sendSugg(this)">What ML models did you build?</button>
+            <button class="chat-sugg-btn" onclick="sendSugg(this)">What are the key insights from EDA?</button>
+            <button class="chat-sugg-btn" onclick="sendSugg(this)">How is the database structured?</button>
+            <button class="chat-sugg-btn" onclick="sendSugg(this)">Who is on the Snipers Team?</button>
           </div>
         </div>
       </div>
@@ -2278,7 +2277,7 @@ function initChat() {
   let greet = 'Good morning';
   if (hr >= 12 && hr < 18) greet = 'Good afternoon';
   else if (hr >= 18) greet = 'Good evening';
-  document.getElementById('greeting-txt').innerHTML = `${greet}! I'm Mohamed Gharieb — Applied AI Engineer & Data Scientist. I'm here to tell you about my work, projects, and how I can help you. What would you like to know?`;
+  document.getElementById('greeting-txt').innerHTML = `${greet}! I'm the AI Assistant for the Hotel Intelligence Dashboard built by the Snipers Team. What would you like to know about our database, EDA, or predictive models?`;
   
   try {
     const saved = localStorage.getItem(CHAT_KEY);
@@ -2356,9 +2355,18 @@ async function sendMessage() {
   } catch(e) {
     // Fallback Mock AI if backend is not deployed yet
     const cur_msg = text.toLowerCase();
-    let reply = "I specialize in Machine Learning and Data Visualization! You can check out my projects in the portfolio.";
-    if(cur_msg.includes("price") || cur_msg.includes("rate")) reply = "For pricing details, please reach out via my contact channels since project scope can vary significantly.";
-    if(cur_msg.includes("contact") || cur_msg.includes("email")) reply = "You can contact me at the email listed in my resume or directly via LinkedIn. I'm always open to new opportunities!";
+    let reply = "I am an AI assistant for the Snipers Team's Hotel Intelligence Dashboard. Feel free to ask about our ML models, EDA gallery, or database engineering!";
+
+    if(cur_msg.includes("hello") || cur_msg.includes("hi") || cur_msg.includes("hey")) reply = "Hello! How can I help you explore our Hotel Intelligence Dashboard?";
+    else if(cur_msg.includes("price") || cur_msg.includes("rate") || cur_msg.includes("cost")) reply = "The dashboard analyzes Hotel bookings, including Average Daily Rates (ADR) and revenue trends by market segment.";
+    else if(cur_msg.includes("contact") || cur_msg.includes("team") || cur_msg.includes("author")) reply = "This project was built by the Snipers Team: Gharieb (DB/Leader), Saad (SQL), El Kholy (Python/EDA), Wael (ML), and Hesham (Dashboard). Supervised by Dr. Mohamed El Shafey.";
+    else if(cur_msg.includes("model") || cur_msg.includes("predict") || cur_msg.includes("machine learning")) reply = "We built 4 models: Random Forest, XGBoost, Logistic Regression, and Decision Tree. Random Forest is our champion with 93.2% accuracy and 0.962 AUC for predicting cancellation risk.";
+    else if(cur_msg.includes("accuracy") || cur_msg.includes("auc")) reply = "Our Random Forest model achieved 93.2% accuracy and 0.962 ROC-AUC. It uses 300 decision trees to correctly flag high-risk bookings.";
+    else if(cur_msg.includes("database") || cur_msg.includes("sql") || cur_msg.includes("schema")) reply = "Our database features 11 normalized tables across 4 domains in 3NF. We built 10 SQL views for analytical queries.";
+    else if(cur_msg.includes("cancel") || cur_msg.includes("risk")) reply = "High cancellation risks are often associated with lead times over 120 days and 'Non Refund' OTA deposits (the Non-Refund paradox).";
+    else if(cur_msg.includes("eda") || cur_msg.includes("visual")) reply = "We have an extensive 18-plot EDA gallery answering 20 questions on data quality, univariate distributions, and bivariate correlations.";
+    else if(cur_msg.includes("project") || cur_msg.includes("dashboard") || cur_msg.includes("hotel")) reply = "This is the Hotel Reservation & Billing Intelligence System. It uses a Portuguese hotel booking dataset (119,390 records) to predict cancellations and analyze revenue.";
+    else if(cur_msg.includes("technology") || cur_msg.includes("stack") || cur_msg.includes("tool")) reply = "We used SQL Server for the database, Python (pandas/sns) for EDA, Orange for Machine Learning, and Vanilla HTML/CSS/JS + Chart.js for the Dashboard.";
     
     setTimeout(() => {
         appendDOM('ai', reply);
