@@ -1,0 +1,30 @@
+290: <section class="hero">
+308: </section>
+330: <!-- SECTION: OVERVIEW & TEAM -->
+332: <section class="section reveal" id="overview">
+366: </section>
+369: <section class="section reveal" id="team">
+394: </section>
+397: <!-- SECTION: DATABASE -->
+399: <section class="section reveal" id="database">
+469: </section>
+472: <!-- SECTION: EDA -->
+474: <section class="section reveal" id="eda">
+612: </section>
+615: <!-- SECTION: LIVE DASHBOARD -->
+617: <section class="section reveal" id="dashboard">
+694: </section>
+697: <!-- SECTION: DASHBOARD -->
+699: <section class="section reveal" id="dashboard">
+776: </section>
+779: <!-- SECTION: ML MODELS -->
+781: <section class="section reveal" id="ml">
+845: </section>
+848: <!-- SECTION: RECOMMENDATIONS -->
+850: <section class="section reveal" id="recommendations">
+896: </section>
+899: <!-- SECTION: IMPLEMENTATION PLAN -->
+901: <section class="section reveal" id="implementation">
+1056: </section>
+1063: <footer class="site-footer">
+1078: </footer>
