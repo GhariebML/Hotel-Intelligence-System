@@ -1,0 +1,6 @@
+﻿# Force GitHub to recognize Python as the primary language
+*.html linguist-generated
+*.css linguist-generated
+*.js linguist-vendored
+templates/** linguist-generated
+static/** linguist-generated
