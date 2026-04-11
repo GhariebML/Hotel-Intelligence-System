@@ -1745,17 +1745,53 @@ const observer=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 // ── DATA ──────────────────────────────────────────────────────
+// Each chart has data split by hotel type: all / city / resort
 const DATA={
   months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+
+  // Monthly bookings — hotel type split
   city:   [320,380,520,640,780,900,1190,1130,840,714,530,352],
   resort: [130,155,215,270,320,360,476,454,336,286,212,141],
-  cancelSeg:{labels:['Online TA','Offline TA','Direct','Corporate','Groups','Other'],
-             values:[41,22,19,11,35,27]},
-  deposit:{labels:['No Deposit','Non Refund','Refundable'],values:[88,11,1],
-           cancel:[28,99,19]},
-  demo:{labels:['Solo (1 adult)','Couple (2 adults)','Family (3+)'],values:[25,60,15]},
+
+  // Year proportions (2015 partial, 2016 full, 2017 partial)
+  yearFactor:{all:1,'2015':0.26,'2016':0.40,'2017':0.34},
+
+  // Cancellation rate by market segment — per hotel type
+  cancelSeg:{
+    labels:['Online TA','Offline TA','Direct','Corporate','Groups','Other'],
+    all:   [41, 22, 19, 11, 35, 27],
+    city:  [45, 25, 21,  9, 40, 28],
+    resort:[35, 17, 15, 14, 28, 25],
+  },
+
+  // Deposit type distribution — per hotel type (%)
+  deposit:{
+    labels:['No Deposit','Non Refund','Refundable'],
+    all:   [88, 11, 1],
+    city:  [85, 14, 1],
+    resort:[93,  6, 1],
+    cancel:[28, 99, 19],
+  },
+
+  // Guest demographics — per hotel type (%)
+  demo:{
+    labels:['Solo (1 adult)','Couple (2 adults)','Family (3+)'],
+    all:   [25, 60, 15],
+    city:  [31, 58, 11],
+    resort:[17, 62, 21],
+  },
+
+  // ADR (€) by season — [city, resort]
   adrSeason:{q1:[85,70],q2:[97,88],q3:[120,105],q4:[89,76]},
-  meal:{labels:['Bed & Breakfast','No Meal','Half Board','Full Board'],values:[77,12,9,2]},
+
+  // Meal plan share — per hotel type (%)
+  meal:{
+    labels:['Bed & Breakfast','No Meal','Half Board','Full Board'],
+    all:   [77, 12, 9, 2],
+    city:  [70, 18, 10, 2],
+    resort:[87,  4,  7, 2],
+  },
+
   features:[{name:'lead_time',imp:78},{name:'deposit_type',imp:71},{name:'previous_cancellations',imp:65},{name:'market_segment',imp:58},{name:'adr',imp:42}],
 };
 
@@ -1786,56 +1822,73 @@ function makeChartOpts(title){
 }
 
 function buildCharts(){
-  // Monthly trend — respects hotel + year filters
-  const yearFactor={all:1,'2015':0.26,'2016':0.40,'2017':0.34}[filters.year]||1;
-  const mDatasets=[];
-  if(filters.hotel==='all'||filters.hotel==='city')
-    mDatasets.push({label:'City Hotel',data:DATA.city.map(v=>Math.round(v*yearFactor)),backgroundColor:C_.navy+'CC',borderRadius:4});
-  if(filters.hotel==='all'||filters.hotel==='resort')
-    mDatasets.push({label:'Resort Hotel',data:DATA.resort.map(v=>Math.round(v*yearFactor)),backgroundColor:C_.teal+'CC',borderRadius:4});
-  mkChart('monthlyTrendChart',{type:'bar',data:{
-    labels:DATA.months,
-    datasets:mDatasets
-  },options:{...makeChartOpts(),scales:{x:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}},
-    y:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}}},plugins:{...makeChartOpts().plugins,legend:{position:'top',labels:{color:textCol(),font:{size:11}}}}}});
+  // ── Resolve active filters ──────────────────────────────────
+  const h = filters.hotel; // 'all' | 'city' | 'resort'
+  const yf = DATA.yearFactor[filters.year] || 1;
 
-  // Cancel by segment
+  // ── 1. MONTHLY TREND — hotel type datasets + year scale ─────
+  const mDatasets=[];
+  if(h==='all'||h==='city')
+    mDatasets.push({label:'City Hotel',  data:DATA.city.map(v=>Math.round(v*yf)),  backgroundColor:C_.navy+'CC',borderRadius:4});
+  if(h==='all'||h==='resort')
+    mDatasets.push({label:'Resort Hotel',data:DATA.resort.map(v=>Math.round(v*yf)),backgroundColor:C_.teal+'CC',borderRadius:4});
+  mkChart('monthlyTrendChart',{type:'bar',data:{
+    labels:DATA.months, datasets:mDatasets
+  },options:{...makeChartOpts(),
+    scales:{x:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}},
+            y:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}}},
+    plugins:{...makeChartOpts().plugins,legend:{position:'top',labels:{color:textCol(),font:{size:11}}}}}});
+
+  // ── 2. CANCELLATION BY SEGMENT — hotel-specific rates ───────
+  const csVals = DATA.cancelSeg[h] || DATA.cancelSeg.all;
   mkChart('cancelSegChart',{type:'bar',data:{
     labels:DATA.cancelSeg.labels,
-    datasets:[{label:'Cancellation Rate %',data:DATA.cancelSeg.values,
-      backgroundColor:DATA.cancelSeg.values.map(v=>v>35?C_.red+'CC':v>25?C_.amber+'CC':C_.green+'CC'),
+    datasets:[{label:'Cancellation Rate %',data:csVals,
+      backgroundColor:csVals.map(v=>v>35?C_.red+'CC':v>25?C_.amber+'CC':C_.green+'CC'),
       borderRadius:4}]
   },options:{indexAxis:'y',...makeChartOpts(),plugins:{legend:{display:false}}}});
 
-  // Deposit donut
+  // ── 3. DEPOSIT TYPE — hotel-specific distribution ────────────
+  const depVals = DATA.deposit[h] || DATA.deposit.all;
   mkChart('depositChart',{type:'doughnut',data:{
     labels:DATA.deposit.labels,
-    datasets:[{data:DATA.deposit.values,backgroundColor:[C_.green,C_.red,C_.teal],borderWidth:2,borderColor:'#fff'}]
+    datasets:[{data:depVals,backgroundColor:[C_.green,C_.red,C_.teal],borderWidth:2,borderColor:'#fff'}]
   },options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'right',labels:{color:textCol(),font:{size:11}}},
              tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed}% of bookings`}}}}});
 
-  // Demographics donut
+  // ── 4. DEMOGRAPHICS — hotel-specific mix ────────────────────
+  const demoVals = DATA.demo[h] || DATA.demo.all;
   mkChart('demoChart',{type:'doughnut',data:{
     labels:DATA.demo.labels,
-    datasets:[{data:DATA.demo.values,backgroundColor:[C_.navy,C_.teal,C_.amber],borderWidth:2,borderColor:'#fff'}]
+    datasets:[{data:demoVals,backgroundColor:[C_.navy,C_.teal,C_.amber],borderWidth:2,borderColor:'#fff'}]
   },options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'right',labels:{color:textCol(),font:{size:11}}}}}});
 
-  // ADR by season
-  mkChart('adrSeasonChart',{type:'bar',data:{
-    labels:['Q1 (Jan–Mar)','Q2 (Apr–Jun)','Q3 (Jul–Sep)','Q4 (Oct–Dec)'],
-    datasets:[{label:'City Hotel ADR (€)',data:DATA.adrSeason.q1.concat().map((_,i)=>DATA.adrSeason[['q1','q2','q3','q4'][i]][0]),backgroundColor:C_.navy+'CC',borderRadius:4},
-              {label:'Resort Hotel ADR (€)',data:[DATA.adrSeason.q1[1],DATA.adrSeason.q2[1],DATA.adrSeason.q3[1],DATA.adrSeason.q4[1]],backgroundColor:C_.teal+'CC',borderRadius:4}]
-  },options:{...makeChartOpts(),plugins:{...makeChartOpts().plugins,legend:{position:'top',labels:{color:textCol(),font:{size:11}}}}}});
+  // ── 5. ADR BY SEASON — filter by hotel type ─────────────────
+  const seasons=['q1','q2','q3','q4'];
+  const adrLabels=['Q1 (Jan-Mar)','Q2 (Apr-Jun)','Q3 (Jul-Sep)','Q4 (Oct-Dec)'];
+  const adrDatasets=[];
+  if(h==='all'||h==='city')
+    adrDatasets.push({label:'City Hotel ADR (\u20ac)',
+      data:seasons.map(s=>DATA.adrSeason[s][0]),
+      backgroundColor:C_.navy+'CC',borderRadius:4});
+  if(h==='all'||h==='resort')
+    adrDatasets.push({label:'Resort Hotel ADR (\u20ac)',
+      data:seasons.map(s=>DATA.adrSeason[s][1]),
+      backgroundColor:C_.teal+'CC',borderRadius:4});
+  mkChart('adrSeasonChart',{type:'bar',data:{labels:adrLabels,datasets:adrDatasets},
+    options:{...makeChartOpts(),
+      plugins:{...makeChartOpts().plugins,legend:{position:'top',labels:{color:textCol(),font:{size:11}}}}}});
 
-  // Meal plan
+  // ── 6. MEAL PLAN — hotel-specific preferences ───────────────
+  const mealVals = DATA.meal[h] || DATA.meal.all;
   mkChart('mealChart',{type:'bar',data:{
     labels:DATA.meal.labels,
-    datasets:[{label:'Share %',data:DATA.meal.values,backgroundColor:[C_.navy,C_.teal,C_.amber,C_.green],borderRadius:4}]
+    datasets:[{label:'Share %',data:mealVals,backgroundColor:[C_.navy,C_.teal,C_.amber,C_.green],borderRadius:4}]
   },options:{...makeChartOpts(),plugins:{legend:{display:false}}}});
 
-  // Feature importance bars
+  // ── Feature importance bars (static) ────────────────────────
   const fb=document.getElementById('featureBar');
   if(fb){fb.innerHTML='';DATA.features.forEach(f=>{
     const pct=f.imp; const color=pct>70?C_.red:pct>60?C_.amber:C_.teal;
