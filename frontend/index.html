@@ -267,8 +267,8 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   /* ── LAYOUT ────────────────────────────────────────────────────────── */
   
 
-  /* ── HERO ──────────────────────────────────────────────────────────── */
-  .hero {
+  /* ── ML HERO ──────────────────────────────────────────────────────────── */
+  .ml-hero {
     position: relative;
     background: linear-gradient(135deg, #0a1628 0%, #132235 50%, #0d2233 100%);
     border: 1px solid var(--border);
@@ -277,31 +277,31 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
     margin-bottom: 40px;
     overflow: hidden;
   }
-  .hero::before {
+  .ml-hero::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, var(--teal), var(--teal2), var(--gold));
   }
-  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
-  .hero-badge {
+  .ml-hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  .ml-hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(46,196,182,0.1); border: 1px solid rgba(46,196,182,0.3);
     border-radius: 100px; padding: 6px 16px; font-size: 12px;
     color: var(--teal2); font-weight: 600; letter-spacing: 0.05em;
     text-transform: uppercase; margin-bottom: 16px;
   }
-  .hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal2); animation: pulse 2s infinite; }
+  .ml-hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal2); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 700; line-height: 1.15; margin-bottom: 14px; }
-  .hero h1 span { color: var(--teal2); }
-  .hero p { color: var(--muted); font-size: 15px; max-width: 580px; }
-  .hero-stats { display: flex; flex-direction: column; gap: 12px; }
-  .hero-stat {
+  .ml-hero h1 { font-size: clamp(26px, 4vw, 42px); font-weight: 700; line-height: 1.15; margin-bottom: 14px; }
+  .ml-hero h1 span { color: var(--teal2); }
+  .ml-hero p { color: var(--muted); font-size: 15px; max-width: 580px; }
+  .ml-hero-stats { display: flex; flex-direction: column; gap: 12px; }
+  .ml-hero-stat {
     background: rgba(46,196,182,0.06); border: 1px solid var(--border);
     border-radius: var(--r); padding: 14px 20px; text-align: center; min-width: 130px;
   }
-  .hero-stat .val { font-size: 28px; font-weight: 700; color: var(--teal2); font-family: 'JetBrains Mono', monospace; }
-  .hero-stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .ml-hero-stat .val { font-size: 28px; font-weight: 700; color: var(--teal2); font-family: 'JetBrains Mono', monospace; }
+  .ml-hero-stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
 
   /* ── SECTION LABEL ─────────────────────────────────────────────────── */
   .section-label {
@@ -392,10 +392,8 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   .predictor-header p  { font-size: 13px; color: var(--muted); margin-top: 2px; }
   .predictor-icon { font-size: 28px; }
 
-  .predictor-
-  @media (max-width: 768px) { .predictor- }
-
   .predictor-form { padding: 28px 32px; border-right: 1px solid var(--border); }
+  @media (max-width: 768px) { .predictor-form { border-right: none; border-bottom: 1px solid var(--border); } }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
   .form-group label {
     display: block; font-size: 11px; font-weight: 600; color: var(--muted);
@@ -1002,19 +1000,19 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div id="data-quality" class="eda-tab-content active" style="margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Missing Values &amp; Validity Violations</span></div>
-        <img class="plot-card-img" src="assets/eda/q1.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Analysis of missing values across all dataset features.</p>
-      </div>
-      <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Data Inconsistencies</span></div>
-        <img class="plot-card-img" src="assets/eda/q2.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Identification of structural errors and invalid formats.</p>
+        <div class="plot-card-header"><span class="plot-card-title">Feature Distributions</span></div>
+        <img class="plot-card-img" src="assets/eda/q1.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Distributions" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Univariate histograms and KDE curves for all numerical dataset features.</p>
       </div>
       <div class="plot-card reveal">
         <div class="plot-card-header"><span class="plot-card-title">Outlier Detection</span></div>
-        <img class="plot-card-img" src="assets/eda/q3.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Boxplots highlighting numerical outliers like ADR anomalies.</p>
+        <img class="plot-card-img" src="assets/eda/q2.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Boxplots" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Boxplots highlighting statistical outliers in lead time, ADR, and stay duration.</p>
+      </div>
+      <div class="plot-card reveal">
+        <div class="plot-card-header"><span class="plot-card-title">ADR Winsorization</span></div>
+        <img class="plot-card-img" src="assets/eda/q3.webp" loading="lazy" onclick="openLightbox(this.src)" alt="ADR Capping" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Distribution of Average Daily Rate after capping at the 99th percentile.</p>
       </div>
     </div>
   </div>
@@ -1022,19 +1020,19 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div id="distributions" class="eda-tab-content" style="display:none; margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Lead Time Distribution</span></div>
-        <img class="plot-card-img" src="assets/eda/q4.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Histogram of booking lead times showing right-skew.</p>
+        <div class="plot-card-header"><span class="plot-card-title">Feature Correlations</span></div>
+        <img class="plot-card-img" src="assets/eda/q4.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Correlation Heatmap" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Heatmap showing Pearson correlations between numerical variables.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">ADR Distribution</span></div>
-        <img class="plot-card-img" src="assets/eda/q5.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Average Daily Rate spread across hotel types.</p>
+        <div class="plot-card-header"><span class="plot-card-title">Key Relationships</span></div>
+        <img class="plot-card-img" src="assets/eda/q5.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Scatter Plots" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Scatter plots with regression lines for stay duration and price correlations.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Length of Stay</span></div>
-        <img class="plot-card-img" src="assets/eda/q6.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Distribution of total nights stayed per booking.</p>
+        <div class="plot-card-header"><span class="plot-card-title">Multivariate Analysis</span></div>
+        <img class="plot-card-img" src="assets/eda/q8.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Multivariate Correlation" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Advanced correlation matrix highlighting multi-feature dependencies.</p>
       </div>
     </div>
   </div>
@@ -1042,14 +1040,14 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   <div id="categorical" class="eda-tab-content" style="display:none; margin-top:24px;">
     <div class="chart-grid-2">
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Market Segment Breakdown</span></div>
-        <img class="plot-card-img" src="assets/eda/q7.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Proportion of bookings by market segment (OTA, Direct, etc).</p>
+        <div class="plot-card-header"><span class="plot-card-title">ADR by Hotel Type</span></div>
+        <img class="plot-card-img" src="assets/eda/q6.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Bar Chart" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Mean Average Daily Rate comparison between City and Resort hotels.</p>
       </div>
       <div class="plot-card reveal">
-        <div class="plot-card-header"><span class="plot-card-title">Distribution Channel Options</span></div>
-        <img class="plot-card-img" src="assets/eda/q8.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Plot" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
-        <p class="plot-caption">Frequency of bookings via different distribution channels.</p>
+        <div class="plot-card-header"><span class="plot-card-title">Cancellation Drivers</span></div>
+        <img class="plot-card-img" src="assets/eda/q7.webp" loading="lazy" onclick="openLightbox(this.src)" alt="Drivers Analysis" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+        <p class="plot-caption">Impact of deposit type and previous cancellations on booking outcome.</p>
       </div>
     </div>
   </div>
@@ -1057,7 +1055,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 
 <!-- SECTION: SQL QUERY RESULTS -->
 <!-- ══════════════════════════════════════════════════════════════ -->
-<section class="section reveal" id="sqlboard">
+<section class="section reveal" id="dashboard">
   <div class="section-header">
     <div class="section-header-left">
       <span class="section-tag">LIVE INTELLIGENCE DASHBOARD</span>
@@ -1252,18 +1250,18 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 <section class="section reveal" id="ml">
 
 
-  <!-- ── HERO ──────────────────────────────────────────────────────── -->
-  <div class="hero">
-    <div class="hero-grid">
+  <!-- ── ML HERO ──────────────────────────────────────────────────────── -->
+  <div class="ml-hero">
+    <div class="ml-hero-grid">
       <div>
-        <div class="hero-badge"><span class="dot"></span> ML Models Active</div>
+        <div class="ml-hero-badge"><span class="dot"></span> ML Models Active</div>
         <h1>Predictive <span>Intelligence</span><br>Machine Learning Engine</h1>
         <p>Four classification models trained on 119,390 hotel bookings to predict cancellation risk at booking time — powering real-time intervention strategies.</p>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="val">93.2%</div><div class="lbl">Best Accuracy</div></div>
-        <div class="hero-stat"><div class="val">0.962</div><div class="lbl">Best AUC</div></div>
-        <div class="hero-stat"><div class="val">119K</div><div class="lbl">Bookings Scored</div></div>
+      <div class="ml-hero-stats">
+        <div class="ml-hero-stat"><div class="val">93.2%</div><div class="lbl">Best Accuracy</div></div>
+        <div class="ml-hero-stat"><div class="val">0.962</div><div class="lbl">Best AUC</div></div>
+        <div class="ml-hero-stat"><div class="val">119K</div><div class="lbl">Bookings Scored</div></div>
       </div>
     </div>
   </div>
@@ -2301,7 +2299,7 @@ function openERD() {
 <!-- ── CHATBOT WIDGET ──────────────────────────────────────────────────────── -->
 <div id="chat-widget">
   <div class="chat-fab" id="chat-fab" onclick="toggleChat()">
-    <img src="assets/android-chrome-192x192.png" alt="Chat" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M8 14s1.5 2 4 2 4-2 4-2%22/><line x1=%229%22 y1=%229%22 x2=%229.01%22 y2=%229%22/><line x1=%2215%22 y1=%229%22 x2=%2215.01%22 y2=%229%22/></svg>'">
+    <img src="data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22/><path d=%22M8 14s1.5 2 4 2 4-2 4-2%22/><line x1=%229%22 y1=%229%22 x2=%229.01%22 y2=%229%22/><line x1=%2215%22 y1=%229%22 x2=%2215.01%22 y2=%229%22/></svg>" alt="Chat">
     <div class="badge" id="chat-badge"></div>
   </div>
 
@@ -2309,7 +2307,7 @@ function openERD() {
     <div class="chat-header">
       <div class="chat-header-user">
         <div class="chat-header-avatar">
-          <img src="assets/android-chrome-192x192.png" alt="Bot" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path d=%22M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1v4h-1c0 2.21-1.79 4-4 4H7c-2.21 0-4-1.79-4-4H2v-4h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 12 2z%22/></svg>'">
+          <img src="data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22white%22><path d=%22M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1v4h-1c0 2.21-1.79 4-4 4H7c-2.21 0-4-1.79-4-4H2v-4h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 12 2z%22/></svg>" alt="Bot">
           <div class="status"></div>
         </div>
         <div class="chat-header-info">
@@ -2619,6 +2617,30 @@ async function sendMessage() {
 
 // ── SITE-WIDE SCROLL ANIMATIONS ───────────────────────────────────────
 (function() {
+  // Smooth scroll handler
+  window.scrollToElement = function(id) {
+    const el = document.querySelector(id);
+    if (!el) return;
+    const offset = 80;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = el.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  };
+
+  // Shadow global scrollTo to scrollToElement for compatibility with onclick attributes
+  window.scrollTo = (function(orig) {
+    return function(x, y) {
+      if (typeof x === 'string') return window.scrollToElement(x);
+      return orig.apply(this, arguments);
+    };
+  })(window.scrollTo);
+
   // Topbar glass effect on scroll
   const topbar = document.querySelector('.topbar');
   window.addEventListener('scroll', () => {
