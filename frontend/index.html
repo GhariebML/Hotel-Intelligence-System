@@ -743,13 +743,12 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   </div>
   <div class="topbar-nav">
     <button class="nav-btn active" onclick="scrollTo('#overview')">Overview</button>
-    <button class="nav-btn" onclick="scrollTo('#team')">Team</button>
     <button class="nav-btn" onclick="scrollTo('#database')">Database</button>
     <button class="nav-btn" onclick="scrollTo('#eda')">EDA</button>
+    <button class="nav-btn" onclick="scrollTo('#sql-results')">SQL Views</button>
     <button class="nav-btn" onclick="scrollTo('#dashboard')">Dashboard</button>
     <button class="nav-btn" onclick="scrollTo('#ml')">ML Models</button>
     <button class="nav-btn" onclick="scrollTo('#recommendations')">Recommendations</button>
-    <button class="nav-btn" onclick="scrollTo('#implementation')">Implementation Plan</button>
   </div>
   <div class="topbar-right">
     <span class="badge-pill">Snipers Team</span>
@@ -838,33 +837,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="section reveal" id="team">
-  <div class="section-header">
-    <div class="section-header-left">
-      <span class="section-tag">THE TEAM</span>
-      <h2 class="section-title">Snipers Team</h2>
-      <p class="section-sub">Supervised by Dr. Mohamed El Shafey · Data Mining & Visualization · Military Technical College</p>
-    </div>
-  </div>
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar">G</div>
-      <div class="team-name">Gharieb</div>
-      <div class="team-role">DB Architect & Team Lead</div>
-      <span class="team-leader-badge">⭐ Leader</span>
-    </div>
-    <div class="team-card"><div class="team-avatar">S</div><div class="team-name">Saad</div><div class="team-role">SQL Engineer</div></div>
-    <div class="team-card"><div class="team-avatar">E</div><div class="team-name">El Kholy</div><div class="team-role">Python / EDA Engineer</div></div>
-    <div class="team-card"><div class="team-avatar">W</div><div class="team-name">Wael</div><div class="team-role">Orange / ML Engineer</div></div>
-    <div class="team-card"><div class="team-avatar">H</div><div class="team-name">Hesham</div><div class="team-role">Report & Dashboard Engineer</div></div>
-    <div class="team-card" style="background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;border:none">
-      <div class="team-avatar" style="background:rgba(255,255,255,.15)">Dr</div>
-      <div class="team-name" style="color:#fff">Dr. Mohamed El Shafey</div>
-      <div class="team-role" style="color:rgba(255,255,255,.65)">Course Supervisor</div>
-    </div>
-  </div>
-</section>
+
 
 <!-- ══════════════════════════════════════════════════════════════ -->
 <!-- SECTION: DATABASE -->
@@ -1055,7 +1028,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 
 <!-- SECTION: SQL QUERY RESULTS -->
 <!-- ══════════════════════════════════════════════════════════════ -->
-<section class="section reveal" id="dashboard">
+<section class="section reveal" id="sql-results">
   <div class="section-header">
     <div class="section-header-left">
       <span class="section-tag">LIVE INTELLIGENCE DASHBOARD</span>
@@ -1702,165 +1675,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ -->
-<!-- SECTION: IMPLEMENTATION PLAN -->
-<!-- ══════════════════════════════════════════════════════════════ -->
-<section class="section reveal" id="implementation">
-  <div class="section-header">
-    <div class="section-header-left">
-      <span class="section-tag">IMPLEMENTATION PLAN</span>
-      <h2 class="section-title">Site Update Roadmap</h2>
-      <p class="section-sub">Professional 5-phase plan to upgrade the Vercel dashboard with all project content, new visualizations, and production-grade architecture.</p>
-    </div>
-  </div>
 
-  <div class="callout callout-amber">
-    <div class="callout-label">SCOPE</div>
-    <div class="callout-text">Target: <strong>hotel-booking-dashboard-nine.vercel.app</strong> · Stack: Vanilla HTML/CSS/JS + Chart.js · Deployment: Vercel · Estimated total effort: ~40 engineering hours across 5 phases</div>
-  </div>
-
-  <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:32px">
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-phase">PHASE 1 — DAYS 1–3</div>
-        <div class="timeline-title">Foundation &amp; Design System Upgrade</div>
-        <div class="timeline-desc">Replace current layout with the Navy/Teal/Amber design system used in the report and presentation. Set CSS variables, typography (Playfair Display + DM Sans), dark mode toggle, and sticky navigation with all sections linked.</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">CSS custom properties</span>
-          <span class="timeline-task">Playfair + DM Sans fonts</span>
-          <span class="timeline-task">Dark mode toggle</span>
-          <span class="timeline-task">Sticky nav + scroll-spy</span>
-          <span class="timeline-task">Hero section</span>
-          <span class="timeline-task">Responsive grid</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-phase">PHASE 2 — DAYS 4–6</div>
-        <div class="timeline-title">KPI Dashboard &amp; Live Charts</div>
-        <div class="timeline-desc">Upgrade the Executive Intelligence section with 6 dynamic KPI cards, 6 Chart.js interactive charts (monthly trend, cancel by segment, ADR by season, meal plan, demographics, deposit type), and the risk matrix table with colour-coded cells.</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">6 KPI cards</span>
-          <span class="timeline-task">Chart.js 4.x</span>
-          <span class="timeline-task">Monthly trend chart</span>
-          <span class="timeline-task">Cancel segment chart</span>
-          <span class="timeline-task">ADR seasonal chart</span>
-          <span class="timeline-task">Risk matrix table</span>
-          <span class="timeline-task">Filter chips</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-phase">PHASE 3 — DAYS 7–10</div>
-        <div class="timeline-title">EDA Section — 18 Plot Gallery</div>
-        <div class="timeline-desc">Embed all 18 EDA plots as optimised WebP images with professional plot-card components (header, caption, Q-number badge). Add tabs for Q-categories: Data Quality, Distributions, Categorical, Correlation, Cancellation Drivers.</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">18 plot-card components</span>
-          <span class="timeline-task">Q-number badges</span>
-          <span class="timeline-task">Tab navigation</span>
-          <span class="timeline-task">Image lazy-loading</span>
-          <span class="timeline-task">Lightbox on click</span>
-          <span class="timeline-task">Figure captions</span>
-        </div>
-      </div>
-
-    </div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-phase">PHASE 4 — DAYS 11–14</div>
-        <div class="timeline-title">ML Models &amp; Database Documentation</div>
-        <div class="timeline-desc">Add the Orange workflow diagrams, feature importance chart, cluster visualization, and Silhouette score display. Upgrade the Database section with the SQL views table, CRUD examples in syntax-highlighted code blocks, and the ERD reference link.</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">Feature importance bars</span>
-          <span class="timeline-task">Cluster cards</span>
-          <span class="timeline-task">Orange workflow diagram</span>
-          <span class="timeline-task">SQL views table</span>
-          <span class="timeline-task">Code blocks (JetBrains Mono)</span>
-          <span class="timeline-task">ERD modal</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-phase">PHASE 5 — DAYS 15–17</div>
-        <div class="timeline-title">Content Polish &amp; Vercel Deployment</div>
-        <div class="timeline-desc">Add scroll-reveal animations, all recommendation cards, team section, footer with logos, SEO meta tags, and Open Graph image. Optimize all images (&lt;150KB each as WebP). Deploy to Vercel, verify all routes, run Lighthouse audit (target &gt;90).</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">Scroll-reveal animations</span>
-          <span class="timeline-task">6 recommendation cards</span>
-          <span class="timeline-task">Team section</span>
-          <span class="timeline-task">MTC + DiGiLiANS logos</span>
-          <span class="timeline-task">WebP image optimization</span>
-          <span class="timeline-task">SEO meta + OG</span>
-          <span class="timeline-task">Vercel deploy</span>
-          <span class="timeline-task">Lighthouse &gt;90</span>
-        </div>
-      </div>
-
-      <div class="timeline-item" style="margin-bottom:0">
-        <div class="timeline-phase">PHASE 6 — DAYS 18–20 (OPTIONAL)</div>
-        <div class="timeline-title">Advanced Enhancements</div>
-        <div class="timeline-desc">Connect live data via Supabase or Google Sheets API. Add a booking risk calculator widget where users input lead time, deposit type, and prior cancellations to get a live risk score. Embed Power BI iframe if available.</div>
-        <div class="timeline-tasks">
-          <span class="timeline-task">Supabase/Sheets API</span>
-          <span class="timeline-task">Risk score calculator</span>
-          <span class="timeline-task">Power BI embed</span>
-          <span class="timeline-task">Print-to-PDF mode</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- File structure -->
-  <div class="card" style="margin-top:32px">
-    <div class="card-header"><span class="card-title">Recommended File Structure for Vercel Deployment</span><span class="card-badge">Next.js or Static</span></div>
-    <div class="card-body">
-      <div class="code-block"><code><span class="kw">hotel-dashboard/</span>
-├── <span class="kw">index.html</span>          <span class="cm">← main entry point (this file)</span>
-├── <span class="kw">css/</span>
-│   ├── style.css          <span class="cm">← design system variables, layout</span>
-│   └── charts.css         <span class="cm">← chart & plot card styles</span>
-├── <span class="kw">js/</span>
-│   ├── charts.js          <span class="cm">← all Chart.js definitions</span>
-│   ├── filters.js         <span class="cm">← hotel/year filter logic</span>
-│   └── animations.js      <span class="cm">← scroll-reveal, transitions</span>
-├── <span class="kw">images/</span>
-│   ├── plots/             <span class="cm">← p01–p18 EDA plots (WebP, &lt;150KB each)</span>
-│   ├── mtc-logo.png
-│   ├── digilians-logo.png
-│   └── og-image.png       <span class="cm">← Open Graph social preview</span>
-├── <span class="kw">data/</span>
-│   └── hotel_summary.json <span class="cm">← aggregated KPI data (no raw CSV needed)</span>
-└── <span class="kw">vercel.json</span>           <span class="cm">← headers, rewrites, cache config</span></code></div>
-    </div>
-  </div>
-
-  <!-- Specific changes table -->
-  <div class="card" style="margin-top:20px">
-    <div class="card-header"><span class="card-title">Specific Changes vs Current Site</span><span class="card-badge">Diff Log</span></div>
-    <div class="card-body" style="overflow:auto">
-      <table class="data-table">
-        <thead><tr><th>Current Site Element</th><th>Issue</th><th>Proposed Change</th><th>Priority</th></tr></thead>
-        <tbody>
-          <tr><td>KPI values showing "-"</td><td>Data not loaded / computed</td><td>Pre-compute from dataset, hardcode validated values</td><td><span class="badge-risk badge-high">High</span></td></tr>
-          <tr><td>Charts: empty/blank</td><td>No data pipeline connected</td><td>Embed Chart.js with hardcoded aggregated data</td><td><span class="badge-risk badge-high">High</span></td></tr>
-          <tr><td>Navigation: non-functional</td><td>scrollTo() not wired</td><td>Proper anchor IDs + smooth scrollTop()</td><td><span class="badge-risk badge-high">High</span></td></tr>
-          <tr><td>EDA: text-only</td><td>No actual plots shown</td><td>Embed all 18 EDA plot images with captions</td><td><span class="badge-risk badge-high">High</span></td></tr>
-          <tr><td>Risk matrix: empty rows</td><td>Table data not populated</td><td>Hard-coded colour-coded risk percentages</td><td><span class="badge-risk badge-high">High</span></td></tr>
-          <tr><td>Team section: minimal</td><td>Only text, no structure</td><td>Team cards with avatar, role, and leader badge</td><td><span class="badge-risk badge-med">Med</span></td></tr>
-          <tr><td>No logos visible</td><td>MTC/DiGiLiANS missing</td><td>Base64-embed both logos in header and footer</td><td><span class="badge-risk badge-med">Med</span></td></tr>
-          <tr><td>Generic fonts (system)</td><td>Unmemorable aesthetic</td><td>Playfair Display + DM Sans via Google Fonts</td><td><span class="badge-risk badge-med">Med</span></td></tr>
-          <tr><td>No ML detail</td><td>Orange workflow not shown</td><td>Workflow diagram, feature importance, cluster cards</td><td><span class="badge-risk badge-med">Med</span></td></tr>
-          <tr><td>No SQL documentation</td><td>Views only listed</td><td>Full table + CRUD code blocks + ERD link</td><td><span class="badge-risk badge-low">Low</span></td></tr>
-          <tr><td>No implementation plan</td><td>Not present</td><td>Add full Phase 1–6 timeline section</td><td><span class="badge-risk badge-low">Low</span></td></tr>
-          <tr><td>No footer</td><td>Site ends abruptly</td><td>Professional footer with both logos + course info</td><td><span class="badge-risk badge-low">Low</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 
 </div><!-- /main -->
 
@@ -1870,13 +1685,12 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 <footer class="site-footer">
   <div class="footer-links" style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding: 0 0 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; text-transform:uppercase; font-size:12px; font-weight:600;">
     <a href="#" onclick="scrollTo('#overview'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Overview</a>
-    <a href="#" onclick="scrollTo('#team'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Team</a>
     <a href="#" onclick="scrollTo('#database'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Database</a>
     <a href="#" onclick="scrollTo('#eda'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">EDA</a>
+    <a href="#" onclick="scrollTo('#sql-results'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">SQL Views</a>
     <a href="#" onclick="scrollTo('#dashboard'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Dashboard</a>
     <a href="#" onclick="scrollTo('#ml'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">ML Models</a>
     <a href="#" onclick="scrollTo('#recommendations'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Recommendations</a>
-    <a href="#" onclick="scrollTo('#implementation'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Implementation Plan</a>
   </div>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -1972,11 +1786,16 @@ function makeChartOpts(title){
 }
 
 function buildCharts(){
-  // Monthly trend
+  // Monthly trend — respects hotel + year filters
+  const yearFactor={all:1,'2015':0.26,'2016':0.40,'2017':0.34}[filters.year]||1;
+  const mDatasets=[];
+  if(filters.hotel==='all'||filters.hotel==='city')
+    mDatasets.push({label:'City Hotel',data:DATA.city.map(v=>Math.round(v*yearFactor)),backgroundColor:C_.navy+'CC',borderRadius:4});
+  if(filters.hotel==='all'||filters.hotel==='resort')
+    mDatasets.push({label:'Resort Hotel',data:DATA.resort.map(v=>Math.round(v*yearFactor)),backgroundColor:C_.teal+'CC',borderRadius:4});
   mkChart('monthlyTrendChart',{type:'bar',data:{
     labels:DATA.months,
-    datasets:[{label:'City Hotel',data:DATA.city,backgroundColor:C_.navy+'CC',borderRadius:4},
-              {label:'Resort Hotel',data:DATA.resort,backgroundColor:C_.teal+'CC',borderRadius:4}]
+    datasets:mDatasets
   },options:{...makeChartOpts(),scales:{x:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}},
     y:{ticks:{color:textCol(),font:{size:10}},grid:{color:gridCol()}}},plugins:{...makeChartOpts().plugins,legend:{position:'top',labels:{color:textCol(),font:{size:11}}}}}});
 
