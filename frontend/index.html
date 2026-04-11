@@ -256,6 +256,58 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 .filter-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 4px 10px rgba(27,58,92,.2)}
 [data-theme=dark] .filter-chip.active{background:var(--teal);border-color:var(--teal);box-shadow:0 4px 10px rgba(31,122,140,.3)}
 
+/* ── 3D OVERVIEW ANIMATION ── */
+.overview-3d-anim {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  perspective: 600px;
+  pointer-events: none;
+  opacity: 0.15;
+}
+[data-theme=dark] .overview-3d-anim { opacity: 0.25; }
+@media(max-width:768px){.overview-3d-anim{display:none;}}
+.cube-wrapper {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: float3d 6s ease-in-out infinite;
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin3d 15s linear infinite;
+}
+.cube-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--teal);
+  background: rgba(46, 196, 182, 0.05);
+  box-shadow: 0 0 15px rgba(46, 196, 182, 0.4) inset;
+}
+.cube-face.front  { transform: rotateY(  0deg) translateZ(40px); }
+.cube-face.right  { transform: rotateY( 90deg) translateZ(40px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(40px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(40px); }
+.cube-face.top    { transform: rotateX( 90deg) translateZ(40px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+@keyframes spin3d {
+  from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
+}
+@keyframes float3d {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -754,13 +806,13 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
     <span class="topbar-title">Hotel <em>Intelligence</em></span>
   </div>
   <div class="topbar-nav">
-    <button class="nav-btn active" onclick="scrollTo('#overview')">Overview</button>
-    <button class="nav-btn" onclick="scrollTo('#database')">Database</button>
-    <button class="nav-btn" onclick="scrollTo('#eda')">EDA</button>
-    <button class="nav-btn" onclick="scrollTo('#sql-results')">SQL Views</button>
-    <button class="nav-btn" onclick="scrollTo('#dashboard')">Dashboard</button>
-    <button class="nav-btn" onclick="scrollTo('#ml')">ML Models</button>
-    <button class="nav-btn" onclick="scrollTo('#recommendations')">Recommendations</button>
+    <button class="nav-btn active" onclick="window.scrollToElement('#overview')">Overview</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#database')">Database</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#eda')">EDA</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#sql-results')">SQL Views</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#dashboard')">Dashboard</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#ml')">ML Models</button>
+    <button class="nav-btn" onclick="window.scrollToElement('#recommendations')">Recommendations</button>
   </div>
   <div class="topbar-right">
     <span class="badge-pill">Snipers Team</span>
@@ -814,11 +866,24 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 <!-- SECTION: OVERVIEW & TEAM -->
 <!-- ══════════════════════════════════════════════════════════════ -->
 <section class="section reveal" id="overview">
-  <div class="section-header">
+  <div class="section-header" style="position: relative;">
     <div class="section-header-left">
       <span class="section-tag">PROJECT OVERVIEW</span>
       <h2 class="section-title">About This Project</h2>
       <p class="section-sub">A full-cycle data engineering and analytical intelligence project built on a real-world Portuguese hotel booking dataset.</p>
+    </div>
+    
+    <div class="overview-3d-anim">
+      <div class="cube-wrapper">
+        <div class="cube">
+          <div class="cube-face front"></div>
+          <div class="cube-face back"></div>
+          <div class="cube-face right"></div>
+          <div class="cube-face left"></div>
+          <div class="cube-face top"></div>
+          <div class="cube-face bottom"></div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="chart-grid-2">
@@ -1696,13 +1761,13 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 <!-- ══════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-links" style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap; padding: 0 0 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; text-transform:uppercase; font-size:12px; font-weight:600;">
-    <a href="#" onclick="scrollTo('#overview'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Overview</a>
-    <a href="#" onclick="scrollTo('#database'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Database</a>
-    <a href="#" onclick="scrollTo('#eda'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">EDA</a>
-    <a href="#" onclick="scrollTo('#sql-results'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">SQL Views</a>
-    <a href="#" onclick="scrollTo('#dashboard'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Dashboard</a>
-    <a href="#" onclick="scrollTo('#ml'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">ML Models</a>
-    <a href="#" onclick="scrollTo('#recommendations'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Recommendations</a>
+    <a href="#" onclick="window.scrollToElement('#overview'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Overview</a>
+    <a href="#" onclick="window.scrollToElement('#database'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Database</a>
+    <a href="#" onclick="window.scrollToElement('#eda'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">EDA</a>
+    <a href="#" onclick="window.scrollToElement('#sql-results'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">SQL Views</a>
+    <a href="#" onclick="window.scrollToElement('#dashboard'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Dashboard</a>
+    <a href="#" onclick="window.scrollToElement('#ml'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">ML Models</a>
+    <a href="#" onclick="window.scrollToElement('#recommendations'); return false;" style="color:#aaa;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='#aaa'">Recommendations</a>
   </div>
   <div class="footer-inner">
     <div class="footer-brand">
