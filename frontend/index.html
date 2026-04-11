@@ -244,6 +244,18 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);font-si
 .footer-brand{display:flex;align-items:center;gap:10px}
 .footer-brand img{height:32px;opacity:.85}
 
+/* ── FILTERS BAR ── */
+.filters-bar{background:var(--card);border-bottom:1px solid var(--border);padding:14px 48px;display:flex;align-items:center;gap:20px;position:sticky;top:64px;z-index:90;overflow-x:auto}
+@media(max-width:800px){.filters-bar{padding:14px 24px}}
+.filter-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.filter-group{display:flex;gap:8px;align-items:center}
+.filter-sep{width:1px;height:24px;background:var(--border)}
+.filter-chip{background:var(--lgray);border:1px solid transparent;color:var(--muted);font-family:var(--font-body);font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.filter-chip:hover{background:var(--border);color:var(--navy)}
+[data-theme=dark] .filter-chip:hover{background:rgba(255,255,255,.1);color:var(--white)}
+.filter-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 4px 10px rgba(27,58,92,.2)}
+[data-theme=dark] .filter-chip.active{background:var(--teal);border-color:var(--teal);box-shadow:0 4px 10px rgba(31,122,140,.3)}
+
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
